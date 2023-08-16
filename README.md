@@ -11,10 +11,10 @@ Requires the Apache HTTP server, for which templates are available as well.
 
 ## Bootstrap
 ```
-bastille bootstrap https://github.com/jail-templates/apache-http
+bastille bootstrap https://github.com/jail-templates/php-8.0
 ```
 
 ## Apply template
 ```
-bastille template $JAIL jail-templates/apache-http
+bastille template $JAIL jail-templates/php-8.0
 ```
