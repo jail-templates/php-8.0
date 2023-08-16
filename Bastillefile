@@ -6,5 +6,5 @@ CMD sed -i '' 's%;listen.owner = www%listen.owner = www%g' /usr/local/etc/php-fp
 CMD sed -i '' 's%;listen.group = www%listen.group = www%g' /usr/local/etc/php-fpm.d/www.conf
 CMD printf '<?php phpinfo(); ?>\n\n' > /usr/local/www/info.php
 SYSRC php_fpm_enable=YES
-SERVICE php_fpm start
+SERVICE php-fpm start
 SERVICE apache24 restart

@@ -1,4 +1,4 @@
-# Apache 2.4 (http only)
+# PHP 8.0
 Bastille template to install and configure php-fpm with some sane defaults.
 
 * Contains PHP extensions required for applications like Wordpress and Nextcloud.
