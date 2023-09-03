@@ -10,16 +10,17 @@
 ########################################################################################
 
 # install required packages
-PKG php80 php80-mbstring php80-zip php80-zlib php80-curl php80-gd php80-xml php80-xmlreader php80-xmlwriter php80-pdo_mysql php80-mysqli php80-dom php80-exif php80-fileinfo php80-filter php80-iconv php80-ctype php80-posix php80-session php80-simplexml php80-intl php80-bcmath php80-gmp php80-pecl-imagick php80-bz2 php80-opcache php80-pecl-apcu php80-pecl-redis
+PKG php80 php80-mbstring php80-zip php80-zlib php80-curl php80-gd php80-xml php80-xmlreader php80-xmlwriter php80-pdo_mysql php80-mysqli php80-dom php80-exif php80-fileinfo php80-filter php80-iconv php80-ctype php80-posix php80-session php80-simplexml php80-intl php80-bcmath php80-gmp php80-pecl-imagick php80-bz2 php80-opcache php80-pecl-apcu php80-pecl-redis php80-sysvsem
 
 # copy files
 CP usr /
 
 # configure php-fpm
 CMD cp /usr/local/etc/php.ini-production /usr/local/etc/php.ini
-CMD sed -i '' 's%listen = 127.0.0.1:9000%listen = /tmp/php-fpm.sock%g' /usr/local/etc/php-fpm.d/www.conf
+CMD sed -i '' 's%listen = 127.0.0.1:9000%listen = /var/run/php-fpm.sock%g' /usr/local/etc/php-fpm.d/www.conf
 CMD sed -i '' 's%;listen.owner = www%listen.owner = www%g' /usr/local/etc/php-fpm.d/www.conf
 CMD sed -i '' 's%;listen.group = www%listen.group = www%g' /usr/local/etc/php-fpm.d/www.conf
+CMD sed -i '' 's%;listen.mode = 0660%listen.mode = 0660%g' /usr/local/etc/php-fpm.d/www.conf
 CMD printf '<?php phpinfo(); ?>\n\n' > /usr/local/www/info.php
 
 # enable and start php-fpm
